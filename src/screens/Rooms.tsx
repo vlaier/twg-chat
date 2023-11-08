@@ -1,5 +1,6 @@
-import { useRooms } from '../hooks/useRooms';
 import { Text } from 'react-native';
+
+import { useRooms } from '../hooks/useRooms';
 export const Rooms = () => {
   const { data, loading, error } = useRooms();
   !error && !loading && console.log(data);

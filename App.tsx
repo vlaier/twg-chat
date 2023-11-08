@@ -4,12 +4,12 @@ import {
   createHttpLink,
   InMemoryCache,
 } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
 import { API_TOKEN } from '@env';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import { Rooms } from './src/screens/Rooms';
-import { setContext } from '@apollo/client/link/context';
 
 export default function App() {
   const httpLink = createHttpLink({
