@@ -1,19 +1,19 @@
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native'
 
-import { useRoom } from '../hooks/useRoom';
-import { colors } from '../styles/colors';
+import { useRoom } from '../hooks/useRoom'
+import { colors } from '../styles/colors'
 
 type RoomProps = {
-  id: string;
-};
+  id: string
+}
 export const Room = (props: RoomProps) => {
-  const room = useRoom(props.id);
+  const room = useRoom(props.id)
   return (
     <View style={styles.room}>
       <Text>{room?.data?.room?.name}</Text>
     </View>
-  );
-};
+  )
+}
 const styles = StyleSheet.create({
   room: {
     width: '100%',
@@ -21,4 +21,4 @@ const styles = StyleSheet.create({
     backgroundColor: colors.plum,
     borderRadius: 12,
   },
-});
+})

@@ -1,4 +1,4 @@
-import { graphql } from '../gql';
+import { graphql } from '../gql'
 
 export const GET_USERS_ROOMS = graphql(`
   query getRooms {
@@ -9,7 +9,7 @@ export const GET_USERS_ROOMS = graphql(`
       }
     }
   }
-`);
+`)
 export const GET_ROOM = graphql(`
   query getRoom($id: ID!) {
     room(id: $id) {
@@ -33,4 +33,4 @@ export const GET_ROOM = graphql(`
       }
     }
   }
-`);
+`)

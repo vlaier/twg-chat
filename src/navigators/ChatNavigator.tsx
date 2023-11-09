@@ -1,10 +1,10 @@
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack'
 
-import { Routes } from './types';
-import { TopHeader } from '../components/TopHeader';
-import { Rooms } from '../screens/Rooms';
+import { Routes } from './types'
+import { TopHeader } from '../components/TopHeader'
+import { Rooms } from '../screens/Rooms'
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator()
 
 export const ChatNavigator = () => {
   return (
@@ -14,5 +14,5 @@ export const ChatNavigator = () => {
       }}>
       <Stack.Screen name={Routes.ROOMS} component={Rooms} />
     </Stack.Navigator>
-  );
-};
+  )
+}

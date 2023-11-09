@@ -13,4 +13,4 @@ export const colors = {
   black: '#1A1A1A',
   active: '#A8FF76',
   error: '#FF445A',
-};
+}
