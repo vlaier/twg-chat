@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
-import { TouchableOpacity, StyleSheet } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 
 import CaretLeft from '../../assets/Caret-left.svg';
 export const BackButton = () => {
@@ -11,11 +11,3 @@ export const BackButton = () => {
     </TouchableOpacity>
   );
 };
-const styles = StyleSheet.create({
-  button: {
-    width: 32,
-    height: 32,
-    borderWidth: 1,
-    color: 'black',
-  },
-});
