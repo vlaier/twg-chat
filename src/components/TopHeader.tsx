@@ -1,12 +1,13 @@
+import { StackHeaderProps } from '@react-navigation/stack';
 import { View, StyleSheet, Text } from 'react-native';
-import { colors } from '../styles/colors';
+
 import { BackButton } from './BackButton';
 import CallIcon from '../../assets/phone.svg';
 import RoomsIcon from '../../assets/rooms.svg';
 import SearchIcon from '../../assets/search.svg';
 import VideocallIcon from '../../assets/videocall.svg';
-import { StackHeaderProps } from '@react-navigation/stack';
 import { Routes } from '../navigators/types';
+import { colors } from '../styles/colors';
 
 export const TopHeader = (props: StackHeaderProps) => {
   return (

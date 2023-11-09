@@ -1,8 +1,8 @@
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { Rooms } from '../screens/Rooms';
-import { TopHeader } from '../components/TopHeader';
 import { Routes } from './types';
+import { TopHeader } from '../components/TopHeader';
+import { Rooms } from '../screens/Rooms';
 
 const Stack = createStackNavigator();
 
