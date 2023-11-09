@@ -1,6 +1,6 @@
-import { gql } from '@apollo/client';
+import { graphql } from '../gql';
 
-export const GET_ROOMS = gql`
+export const GET_USERS_ROOMS = graphql(`
   query getRooms {
     usersRooms {
       rooms {
@@ -9,8 +9,8 @@ export const GET_ROOMS = gql`
       }
     }
   }
-`;
-export const GET_ROOM = gql`
+`);
+export const GET_ROOM = graphql(`
   query getRoom($id: ID!) {
     room(id: $id) {
       name
@@ -33,4 +33,4 @@ export const GET_ROOM = gql`
       }
     }
   }
-`;
+`);
