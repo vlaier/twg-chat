@@ -10,7 +10,8 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx --max-warnings 0",
     "type-check": "tsc --noEmit --skipLibCheck",
     "prettier:format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json}\" --ignore-path \".prettierignore\"\n",
-    "fix": "yarn lint --fix && yarn prettier:format"
+    "fix": "yarn lint --fix && yarn prettier:format",
+    "codegen": "graphql-codegen --config codegen.ts"
   },
   "dependencies": {
     "@apollo/client": "^3.8.7",
@@ -27,6 +28,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
+    "@graphql-codegen/cli": "5.0.0",
     "@types/react": "~18.2.14",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "@typescript-eslint/parser": "^6.10.0",
@@ -35,7 +37,9 @@
     "prettier": "^3.0.3",
     "react-native-dotenv": "^3.4.9",
     "react-native-svg-transformer": "^1.1.0",
-    "typescript": "^5.1.3"
+    "typescript": "^5.2.2",
+    "@graphql-codegen/introspection": "4.0.0",
+    "@graphql-codegen/client-preset": "4.1.0"
   },
   "private": true
 }
