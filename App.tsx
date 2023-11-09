@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import {
   ApolloClient,
   ApolloProvider,
@@ -8,8 +9,12 @@ import { setContext } from '@apollo/client/link/context';
 import { API_TOKEN } from '@env';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 import { Rooms } from './src/screens/Rooms';
+import { colors } from './src/styles/colors';
+import { NavigationContainer } from '@react-navigation/native';
+import { ChatNavigator } from './src/navigators/ChatNavigator';
 
 export default function App() {
   const httpLink = createHttpLink({
@@ -30,10 +35,14 @@ export default function App() {
   });
   return (
     <ApolloProvider client={client}>
-      <View style={styles.container}>
-        <Rooms />
-        <StatusBar style="auto" />
-      </View>
+      <StatusBar style="auto" />
+      <SafeAreaProvider>
+        <SafeAreaView style={styles.container}>
+          <NavigationContainer>
+            <ChatNavigator />
+          </NavigationContainer>
+        </SafeAreaView>
+      </SafeAreaProvider>
     </ApolloProvider>
   );
 }
@@ -41,8 +50,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: colors.lightBlue,
   },
 });
