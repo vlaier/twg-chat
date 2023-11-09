@@ -11,7 +11,7 @@ import { colors } from '../styles/colors';
 
 export const TopHeader = (props: StackHeaderProps) => {
   return (
-    <View style={styles.whiteBackground}>
+    <View style={styles.background}>
       <View style={styles.header}>
         <View>
           {props.route.name === Routes.ROOMS ? (
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 8,
   },
-  whiteBackground: {
-    backgroundColor: 'white',
+  background: {
+    backgroundColor: colors.veryLightBlue,
   },
 });
