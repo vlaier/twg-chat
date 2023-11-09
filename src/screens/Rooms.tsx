@@ -1,12 +1,26 @@
-import { Text } from 'react-native';
+import { Text, StyleSheet, View } from 'react-native';
 
+import { Room } from '../components/Room';
 import { useRooms } from '../hooks/useRooms';
 export const Rooms = () => {
-  const { data, loading, error } = useRooms();
-  !error && !loading && console.log(data);
-  error && console.log(error);
-  console.log('rooms', data?.rooms);
+  const { data, loading } = useRooms();
   if (loading) return <Text>Loading...</Text>;
-  if (error) return <Text>Error</Text>;
-  return <Text>ROOMS</Text>;
+  const ids = data?.usersRooms.rooms.map(room => room.id);
+  console.log('IDS', ids);
+
+  return (
+    <View style={styles.container}>
+      <Text>Rooms</Text>
+      <Room />
+      <View />
+    </View>
+  );
 };
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: 'white',
+    flex: 1,
+    height: '100%',
+    width: '100%',
+  },
+});

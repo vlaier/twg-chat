@@ -1,4 +1,5 @@
 import { createStackNavigator } from '@react-navigation/stack';
+
 import { Rooms } from '../screens/Rooms';
 
 const Stack = createStackNavigator();
