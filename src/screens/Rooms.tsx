@@ -13,7 +13,7 @@ export const Rooms = () => {
     <View style={styles.container}>
       {ids?.map(id => {
         if (typeof id !== 'string') return null
-        return <Room id={id} />
+        return <Room id={id} key={id} />
       })}
     </View>
   )
