@@ -1,4 +1,6 @@
 import { graphql } from '../gql'
+
+// eslint-disable-next-line
 const CORE_MESSAGE_FIELDS = graphql(`
   fragment CoreMessageFields on Message {
     id

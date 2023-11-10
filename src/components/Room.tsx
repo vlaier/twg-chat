@@ -26,7 +26,7 @@ export const Room = (props: RoomProps) => {
 
   return (
     <TouchableOpacity style={styles.room} onPress={handlePress}>
-      {loading ? <Text>Loading...</Text> : <Text>TEST</Text>}
+      {loading ? <Text>Loading...</Text> : <Text>{lastMessage?.body}</Text>}
     </TouchableOpacity>
   )
 }
