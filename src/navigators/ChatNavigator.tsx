@@ -1,10 +1,11 @@
 import { createStackNavigator } from '@react-navigation/stack'
 
-import { Routes } from './types'
+import { Routes, RootStackParamList } from './types'
 import { TopHeader } from '../components/TopHeader'
+import { Chat } from '../screens/Chat'
 import { Rooms } from '../screens/Rooms'
 
-const Stack = createStackNavigator()
+const Stack = createStackNavigator<RootStackParamList>()
 
 export const ChatNavigator = () => {
   return (
@@ -13,6 +14,7 @@ export const ChatNavigator = () => {
         header: TopHeader,
       }}>
       <Stack.Screen name={Routes.ROOMS} component={Rooms} />
+      <Stack.Screen name={Routes.CHAT} component={Chat} />
     </Stack.Navigator>
   )
 }
