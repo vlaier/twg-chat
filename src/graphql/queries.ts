@@ -1,5 +1,18 @@
 import { graphql } from '../gql'
-
+const CORE_MESSAGE_FIELDS = graphql(`
+  fragment CoreMessageFields on Message {
+    id
+    body
+    insertedAt
+    user {
+      id
+      email
+      firstName
+      lastName
+      role
+    }
+  }
+`)
 export const GET_USERS_ROOMS = graphql(`
   query getRooms {
     usersRooms {
@@ -11,10 +24,12 @@ export const GET_USERS_ROOMS = graphql(`
   }
 `)
 export const GET_ROOM = graphql(`
-  query getRoom($id: ID!) {
-    room(id: $id) {
+  query getRoom($roomId: ID!) {
+    room(id: $roomId) {
       name
+      id
       user {
+        id
         email
         firstName
         lastName
@@ -23,6 +38,7 @@ export const GET_ROOM = graphql(`
       messages {
         id
         body
+        insertedAt
         user {
           id
           email
@@ -31,6 +47,34 @@ export const GET_ROOM = graphql(`
           role
         }
       }
+    }
+  }
+`)
+
+export const MESSAGES_SUBSCRIPTION = graphql(`
+  subscription onMessageAdded($roomId: String!) {
+    messageAdded(roomId: $roomId) {
+      ...CoreMessageFields
+    }
+  }
+`)
+
+export const SEND_MESSAGE = graphql(`
+  mutation onMessageSend($roomId: String!, $body: String!) {
+    sendMessage(roomId: $roomId, body: $body) {
+      id
+    }
+  }
+`)
+
+export const TYPING_USER = graphql(`
+  mutation onTypingUser($roomId: String!) {
+    typingUser(roomId: $roomId) {
+      email
+      firstName
+      id
+      lastName
+      role
     }
   }
 `)
