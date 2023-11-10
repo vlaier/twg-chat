@@ -34,3 +34,7 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+
+.idea
+/src/gql/
+/graphql.schema.json
