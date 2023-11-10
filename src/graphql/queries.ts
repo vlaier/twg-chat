@@ -80,3 +80,11 @@ export const TYPING_USER = graphql(`
     }
   }
 `)
+
+export const TYPING_SUBSCRIPTION = graphql(`
+  subscription onTypingSubscription($roomId: String!) {
+    typingUser(roomId: $roomId) {
+      id
+    }
+  }
+`)
