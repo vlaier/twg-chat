@@ -3,6 +3,7 @@ import { View, StyleSheet, Text } from 'react-native'
 
 import { BackButton } from './BackButton'
 import CallIcon from '../../assets/phone.svg'
+import ProfileIcon from '../../assets/profile.svg'
 import RoomsIcon from '../../assets/rooms.svg'
 import SearchIcon from '../../assets/search.svg'
 import VideocallIcon from '../../assets/videocall.svg'
@@ -17,7 +18,11 @@ export const TopHeader = (props: StackHeaderProps) => {
           {props.route.name === Routes.ROOMS ? (
             <Text style={styles.headerText}>{props.route.name}</Text>
           ) : (
-            <BackButton />
+            <View style={styles.info}>
+              <BackButton />
+              <ProfileIcon height={44} width={44} />
+              <Text style={styles.username}>{props.route.name}</Text>
+            </View>
           )}
         </View>
         <View style={styles.iconsContainer}>
@@ -58,6 +63,18 @@ const styles = StyleSheet.create({
     flex: 0,
     flexDirection: 'row',
     gap: 8,
+  },
+  info: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  username: {
+    color: colors.plum,
+    fontSize: 14,
+    fontWeight: '600',
+    lineHeight: 20,
+    alignSelf: 'flex-start',
   },
   background: {
     backgroundColor: colors.veryLightBlue,
