@@ -1,18 +1,13 @@
 import { useNavigation } from '@react-navigation/native'
 import { StackNavigationProp } from '@react-navigation/stack'
+import { formatDistance, subMinutes } from 'date-fns'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+
 import Profile from '../../assets/profile.svg'
 import { useMessagesSubscription } from '../hooks/useMessagesSubscription'
 import { useRoom } from '../hooks/useRoom'
 import { RootStackParamList, Routes } from '../navigators/types'
 import { colors } from '../styles/colors'
-import {
-  format,
-  formatDistance,
-  formatRelative,
-  subDays,
-  subMinutes,
-} from 'date-fns'
 
 type RoomProps = {
   id: string
@@ -20,8 +15,8 @@ type RoomProps = {
 export const Room = (props: RoomProps) => {
   const { data, loading } = useRoom(props.id)
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>()
-
   useMessagesSubscription(props.id)
+
   const handlePress = () => {
     if (data?.room?.id)
       navigation.push(Routes.CHAT, {
@@ -77,6 +72,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingLeft: 16,
     paddingRight: 37,
+    marginBottom: 12,
   },
   internalContainer: {
     flex: 1,
