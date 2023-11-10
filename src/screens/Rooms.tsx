@@ -1,4 +1,4 @@
-import { Text, StyleSheet, View } from 'react-native'
+import { Text, StyleSheet, ScrollView } from 'react-native'
 
 import { Room } from '../components/Room'
 import { useUsersRooms } from '../hooks/useUsersRooms'
@@ -10,20 +10,18 @@ export const Rooms = () => {
   const ids = data?.usersRooms?.rooms?.map(room => room?.id)
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       {ids?.map(id => {
         if (typeof id !== 'string') return null
         return <Room id={id} key={id} />
       })}
-    </View>
+    </ScrollView>
   )
 }
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.veryLightBlue,
-    flex: 1,
-    gap: 8,
-    height: '100%',
     width: '100%',
+    paddingTop: 44,
   },
 })
